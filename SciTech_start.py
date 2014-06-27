@@ -44,10 +44,30 @@ class ScitechData(object):
 
         print num_results
 
+class OfflineSciTech(object):
 
-thang = ScitechData()
+    def __init__(self):
+        self.tree = etree.parse('scitech.xml')
 
-thang.date("12/13/13")
+        self.root = self.tree.getroot()
+
+    def get_count(self):
+        count = self.root[0].get("count")
+        print count
+
+    def get_titles(self):
+        titles = []
+        for title in self.root[0].get("title"):
+            titles.append(title)
+
+        print titles
+
+# thang = ScitechData()
+
+# thang.date("12/13/13")
+
+OfflineSciTech().get_count()
+OfflineSciTech().get_titles()
 
 
 
@@ -70,10 +90,5 @@ thang.date("12/13/13")
 # request_type = 'EntryDateFrom='
 # recent_updated_url = base_url + request_type + todays_date
 
-# # <codecell>
-
-# recent_updated_url
-
-# # <codecell>
 
 
