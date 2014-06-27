@@ -57,8 +57,8 @@ class OfflineSciTech(object):
 
     def get_titles(self):
         titles = []
-        for title in self.root[0].get("title"):
-            titles.append(title)
+        for title in self.root.iter():
+            titles.append(title.get('title'))
 
         print titles
 
